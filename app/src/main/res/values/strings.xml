@@ -15,5 +15,8 @@
     <string name="painting">Painting</string>
     <string name="photography">Photography</string>
     <string name="tech">Tech</string>
-    <string name="topic_description">%1$s, %2$d courses</string>
+    <plurals name="topic_description">
+        <item quantity="one">%1$s, %2$d course</item>
+        <item quantity="other">%1$s, %2$d courses</item>
+    </plurals>
 </resources>

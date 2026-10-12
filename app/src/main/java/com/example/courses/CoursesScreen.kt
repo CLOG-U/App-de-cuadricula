@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -50,7 +51,9 @@ fun CoursesGrid(modifier: Modifier = Modifier) {
 @Composable
 fun TopicCard(topic: Topic, modifier: Modifier = Modifier) {
     val name = stringResource(topic.name)
-    val description = stringResource(R.string.topic_description, name, topic.availableCourses)
+    val description = pluralStringResource(
+        R.plurals.topic_description, topic.availableCourses, name, topic.availableCourses
+    )
     val mediumPadding = dimensionResource(R.dimen.padding_medium)
     val smallPadding = dimensionResource(R.dimen.padding_small)
 
@@ -77,7 +80,7 @@ fun TopicCard(topic: Topic, modifier: Modifier = Modifier) {
                 )
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.padding(start = mediumPadding, bottom = smallPadding)
+                    modifier = Modifier.padding(start = mediumPadding)
                 ) {
                     Icon(painter = painterResource(R.drawable.ic_grain), contentDescription = null)
                     Text(
